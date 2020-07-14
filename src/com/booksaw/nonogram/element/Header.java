@@ -67,12 +67,14 @@ public class Header {
 					}
 					Integer temp = toSatisfy.get(0);
 					toSatisfy.remove(temp);
-					count = --temp;
+					count = temp;
 
 				}
+				count--; 
 			}
 		}
-		if (count > 0) {
+		
+		if (count > 0 || toSatisfy.size() != 0) {
 			return false;
 		}
 		return true;

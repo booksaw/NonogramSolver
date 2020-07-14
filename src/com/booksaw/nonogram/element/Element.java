@@ -23,7 +23,7 @@ public class Element {
 
 	public void setState(State state) {
 		this.state = state;
-		if (parent.getRender() != null)
+		if (parent != null && parent.getRender() != null)
 			parent.getRender().repaint();
 	}
 

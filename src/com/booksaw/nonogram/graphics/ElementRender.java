@@ -21,7 +21,7 @@ public class ElementRender extends JPanel {
 
 		switch (element.getState()) {
 		case BLANK:
-			g.setColor(Color.gray);
+			g.setColor(Color.LIGHT_GRAY);
 			g.fillRect(0, 0, getWidth(), getHeight());
 			break;
 		case FILLED:

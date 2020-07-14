@@ -3,6 +3,7 @@ package com.booksaw.nonogram.solver;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
 import com.booksaw.nonogram.Nonogram;
@@ -30,6 +31,7 @@ public abstract class Solver implements ActionListener {
 
 		if (nonogram.checkSolution()) {
 			timer.stop();
+			JOptionPane.showMessageDialog(null, "solved");
 		}
 	}
 
