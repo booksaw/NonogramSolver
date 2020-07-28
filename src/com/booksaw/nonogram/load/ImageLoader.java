@@ -15,6 +15,15 @@ import com.booksaw.nonogram.Utils;
 public class ImageLoader implements NonogramLoader {
 
 	private final BufferedImage compareTo = Utils.getImage("hardSearch.png");
+	private final BufferedImage[] numbers;
+	private int xOnScreen, yOnScreen;
+
+	public ImageLoader() {
+		numbers = new BufferedImage[15];
+		for (int i = 0; i < numbers.length; i++) {
+			numbers[i] = Utils.getImage("numbers" + File.separator + (i + 1) + ".png");
+		}
+	}
 
 	@Override
 	public void load(Nonogram nonogram) {
@@ -37,13 +46,8 @@ public class ImageLoader implements NonogramLoader {
 			for (int y = 0; y + compareTo.getHeight() < image.getHeight(); y++) {
 				if (checkLocation(x, y, image)) {
 					System.out.println("found at x = " + x + " y = " + y);
-
-					try {
-						ImageIO.write(image.getSubimage(x, y, compareTo.getWidth(), compareTo.getHeight()), "png",
-								new File("printscreen.png"));
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
+					xOnScreen = x;
+					yOnScreen = y;
 					break;
 				}
 			}
@@ -55,7 +59,6 @@ public class ImageLoader implements NonogramLoader {
 			for (int y = 0; y < compareTo.getHeight(); y++) {
 				int rgb = compareTo.getRGB(x, y);
 				if ((rgb >> 24) == 0x00) {
-					System.out.println("transparent");
 					continue;
 				} else if (rgb != pscr.getRGB(offsetX + x, offsetY + y)) {
 					return false;
