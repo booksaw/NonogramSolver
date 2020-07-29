@@ -22,12 +22,21 @@ public class Header {
 
 		for (String str : split) {
 			headers.add(Integer.parseInt(str));
+			headers = new ArrayList<>();
 		}
 
 	}
 
+	public Header(int location) {
+		this.location = location;
+	}
+
 	public List<Integer> getHeaders() {
 		return headers;
+	}
+
+	public void setHeaders(List<Integer> headers) {
+		this.headers = headers;
 	}
 
 	@Override
@@ -70,10 +79,10 @@ public class Header {
 					count = temp;
 
 				}
-				count--; 
+				count--;
 			}
 		}
-		
+
 		if (count > 0 || toSatisfy.size() != 0) {
 			return false;
 		}
