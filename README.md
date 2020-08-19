@@ -43,6 +43,7 @@ If you do not want the image to be rotated, ensure that the columns are put befo
 * Each individual value within a node is seperated by the symbol ','
 
 It is important that the imputted string does not contain any spaces or invalid characters (ie letters). 
+
 NOTE: it is very easy to make a mistake while inputting a nonogram in this way, this method was never intended to be a long term solution, and was only initally implemeneted to test the solver component of this project. 
 
 This method is used as it is very simple to convert those details into a format that the solver can handle. 
@@ -51,5 +52,7 @@ An example of a nonogram string:
 ![Image of Nonogram](https://www.puzzle-nonograms.com/art/og/puzzle-nonograms.png)
 
 The first column node would be: `1,4,1`. 
+
 All columns combined would be: `1,4,1;3,4,1;1,3;1,1;3,1;5;5,1;4,1,1;5,1;3`
+
 And the entire nonogram string would be: `1,4,1;3,4,1;1,3;1,1;3,1;5;5,1;4,1,1;5,1;3:3,5;1,5;1,6;5;2,4,1;2,1;3;5,1;1;2,1,1`
